@@ -25,7 +25,7 @@ public class ShopTest {
         System.out.println(receipt.toPrettyString());
 
         cart = new Cart();
-        cart.addItem(new Item("Toblerone", 5d, new BuyNForPercentPromo(2, 0.75)), 2);
+        cart.addItem(new Item("Toblerone chocolate", 5d, new BuyNForPercentPromo(2, 0.75)), 2);
         receipt = shop.checkout(cart);
         assertEquals(7.50, receipt.getTotalPrice(), DELTA);
         System.out.println(receipt.toPrettyString());
@@ -36,6 +36,17 @@ public class ShopTest {
         receipt = shop.checkout(cart);
         assertEquals(1, (long)receipt.getItemCount(corkscrew));
         assertEquals(39.60, receipt.getTotalPrice(), DELTA);
+        System.out.println(receipt.toPrettyString());
+
+        cart = new Cart();
+        cart.addItem(new Item("Ketchup", 1.65d, null), 1);
+        cart.addItem(new Item("Valencia wine", 11.90d, new BuyNGetM4FreePromo(4, 1, corkscrew)), 5);
+        cart.addItem(new Item("Coca Cola", 0.70, new BuyNForMPromo(3, 2)), 9);
+        cart.addItem(new Item("Milka chocolate", 1.11, new BuyNForPercentPromo(2, 0.75)), 3);
+
+        receipt = shop.checkout(cart);
+        assertEquals(1, (long)receipt.getItemCount(corkscrew));
+        assertEquals(67.85, receipt.getTotalPrice(), DELTA);
         System.out.println(receipt.toPrettyString());
     }
 }

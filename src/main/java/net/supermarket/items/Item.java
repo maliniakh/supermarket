@@ -3,15 +3,11 @@ package net.supermarket.items;
 import net.supermarket.promos.Promo;
 
 /**
-// * obviously assigning a class for each item in a shop is kind of an overkill in a real life application
  */
 public class Item {
     private String name;
     private final Double price;
     private Promo promo;
-
-    // other fields like, name, mass and so on
-
 
     public Item(String name, Double price, Promo promo) {
         this.name = name;

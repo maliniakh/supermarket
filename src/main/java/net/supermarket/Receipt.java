@@ -67,6 +67,6 @@ class ReceiptRecord {
     }
 
     public String toPrettyString() {
-        return String.format("%20s x %d  %-30s %.2f", item.getName(), count, promo != null ? "(" + promo.getName() + ")" : "", totalPrice);
+        return String.format("%20s x %d  %-50s %.2f", item.getName(), count, promo != null ? "(" + promo.getName() + ")" : "", totalPrice);
     }
 }

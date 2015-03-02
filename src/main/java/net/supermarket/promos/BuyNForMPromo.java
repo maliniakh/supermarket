@@ -37,6 +37,6 @@ public class BuyNForMPromo implements Promo {
 
     @Override
     public String getName() {
-        return n + " for " + m + " promotion";
+        return "Buy " + n + " for " + m + " promotion";
     }
 }
